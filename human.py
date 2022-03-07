@@ -1,3 +1,5 @@
+import house
+
 class Human:
     # static field
     default_name = 'No name'
@@ -18,11 +20,15 @@ class Human:
               f'Default age: {Human.default_age}\n')
 
     def buy_house(self, house, discount):
-        pass
+        final_price = house.final_price(discount)
+        if self.__money < final_price: print('Недостаточно средств\n')
+        else:
+            self.__make_deal(house,final_price)
+            print(f'Куплен дом по цене {final_price}\nОсталось: {self.__money}')
 
     def earn_money(self,money):
         self.__money += money
-        print(f'Заработали {self.__money}')
+        print(f'Заработали {self.__money}\n')
 
     def __make_deal(self,house,price):
         self.__money -= price
@@ -30,9 +36,4 @@ class Human:
 
 
 
-if __name__=='__main__':
-    print(Human.default_name,Human.default_age)
-    petr = Human('Fedr',19)
-    petr.info()
-    petr.earn_money(1000)
-    petr.info()
+
