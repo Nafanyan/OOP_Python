@@ -19,8 +19,37 @@ class Tomato:
         else: return False
 
 
+class TomatoBash():
+    def __init__(self, num_tomatos):
+        self.tomatoes = {}
+        for el in range(int(num_tomatos)):
+            self.tomatoes[el] = Tomato(el)
+
+    def grow_all(self):
+        for num_bash in self.tomatoes.keys():
+            self.tomatoes[num_bash].grow()
+
+    def all_are_ripe(self):
+        result = False
+        for num_bash in self.tomatoes.keys():
+            if self.tomatoes[num_bash].is_ripe():
+                result = self.tomatoes[num_bash].is_ripe()
+            else:
+                result = self.tomatoes[num_bash].is_ripe()
+                break
+        return result
+
+    def give_away_all(self):
+        self.tomatoes = {}
+
+
+
+
+
 if __name__=='__main__':
-    print(Tomato.states)
-    tom = Tomato(0)
+    tom = TomatoBash(4)
+
+
+
 
 
