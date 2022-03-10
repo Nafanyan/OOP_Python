@@ -18,8 +18,7 @@ class Tomato:
         if self._state == Tomato.states[len(Tomato.states) - 1]: return True
         else: return False
 
-
-class TomatoBash():
+class TomatoBash:
     def __init__(self, num_tomatos):
         self.tomatoes = {}
         for el in range(int(num_tomatos)):
@@ -41,6 +40,34 @@ class TomatoBash():
 
     def give_away_all(self):
         self.tomatoes = {}
+
+class Gardener:
+    def __init__(self, name, plant):
+        self.name = name
+        self._plant = plant
+
+    def work(self):
+        print('Gardener is working...')
+        self._plant.grow_all()
+        print('Gardener finished')
+
+    def harvest(self):
+        print('Gardener is harvesting...')
+        if self._plant.all_are_ripe():
+            self._plant.give_away_all()
+            print('Harvesting is finished')
+        else:
+            print('Too early! Your plant is green and not ripe.')
+
+    @staticmethod
+    def knowledge_base():
+        print('''Harvest time for tomatoes should ideally occur
+    when the fruit is a mature green and
+    then allowed to ripen off the vine.
+    This prevents splitting or bruising
+    and allows for a measure of control over the ripening process.''')
+
+
 
 
 
