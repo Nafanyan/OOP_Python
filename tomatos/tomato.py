@@ -74,7 +74,16 @@ class Gardener:
 
 
 if __name__=='__main__':
-    tom = TomatoBash(4)
+    Gardener.knowledge_base()
+    tomatos = TomatoBash(5)
+    people = Gardener('Egor',tomatos)
+    people.work()
+    people.work()
+    people.work()
+    people.harvest()
+    
+
+
 
 
 
